@@ -1,108 +1,215 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<HomePage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
 }
 
 <!DOCTYPE HTML>
 
-		
-		<!-- Jumbotron, w title -->
-		<div class="jumbotron text-center jumbotron-fluid">
-			<div class="container">
-				<h1 class="display-1">@Model.Value("pageTitle")</h1>
-				<p>And this is <span class="font-weight-bold">only</span> the beginning.</p>
-			</div>
-		</div>
 
-		<!-- This is where we're going to render our content -->
-		
-		<div class="container">
+<!-- Jumbotron, w title -->
+@*<div class="jumbotron text-center jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-1">@Model.Value("pageTitle")</h1>
+        <p>And this is <span class="font-weight-bold">only</span> the beginning.</p>
+    </div>
+</div>*@
 
-		<div class="row section">
-			<div class="col-md-12">
-
-				@Model.Value("bodyText")
-
-			</div>
+<!-- ======= hero Section ======= -->
+<section id="hero">
+    <div class="hero-content" data-aos="fade-up">
+        <h2>NIF - <span>Número de Identificação Fiscal</span><br>em Portugal!</h2>
+        <div>
+            <a href="/User/Application/ApplicationCreate" class="btn-get-started scrollto">Solicite o NIF</a>
+            <a href="#services" class="btn-projects scrollto">Saber Mais</a>
+        </div>
     </div>
 
-		</div>
+    <div class="hero-slider swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('/img/hero-carousel/1.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/img/hero-carousel/2.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/img/hero-carousel/3.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/img/hero-carousel/4.jpg');"></div>
+            <div class="swiper-slide" style="background-image: url('/img/hero-carousel/5.jpg');"></div>
+        </div>
+    </div>
 
-		<!-- Grey Banner -->
-		<div class="container-fluid grey-bg">
-			<div class="container">
-				<div class="row section">
-					<div class="col-md-8">
-						<h2>A flexible CMS - do things your way</h2>
-						<p>The Umbraco source code is free and available for download either as a ZIP file or via NuGet under the MIT license, so you can <a href="#">start crafting websites in Umbraco today</a>. 
-						Need to build a site with multiple 3rd party extensions and customized add-ons? No problem. Need to build a simple site with a straightforward contact form? No problem.</p>
-						<p>Whatever type or scale of your project, Umbraco will be able to handle it - and the cherry on top; with Umbraco’s well-known editor friendly UI, 
-							no matter how complex a site you’re building, you know that your editors will still find it a breeze to edit. Oh, and the cherry on top of the cherry - 
-							there's <span class="font-weight-bold">no need for you to spend time learning a new coding or templating language as Umbraco is based on C#, javaScript and Razor</span>. </p>
-					</div>
-					<div class="col-md-4">
-						<img src="/images/community.png" class="img-fluid" alt="Community illustration">
-					</div>
-				</div>
-			</div>
-		</div>
+</section>
+<!-- End Hero Section -->
+<!-- ======= About Section ======= -->
+<section id="about">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-lg-6 about-img">
+                <img src="/img/about-img.jpg" alt="">
+            </div>
 
-		<!-- Blog section -->
-		<div class="container">
+            <div class="col-lg-6 content">
+                <h2>O que é NIF?</h2>
+                <h3>A palavra NIF é a abreviação de “<b>Número de Identificação Fiscal</b>”, comumente chamado, também, de Número de Contribuinte. Ou seja, é um número sequencial destinado exclusivamente ao tratamento de informação de índole fiscal e aduaneira.</h3>
 
-			<div class="row section">
-				<div class="col-md-12">
-					<h1>Latest from the blog</h1>
-				</div>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> Para obter o NIF, tanto estrangeiros, quanto nacionais que não vivam em Portugal (vivam em Estado Terceiro), necessitam de um representante fiscal.</li>
+                    <li><i class="bi bi-check-circle"></i> Este representante deve ser, necessariamente, um residente legal ou nacional português que viva em Portugal.</li>
+                    <li><i class="bi bi-check-circle"></i> Em tradução rápida, o NIF é o documento que conterá todas as informações fiscais e financeiras vinculadas diretamente com a AT – Autoridade Fiscal e Aduaneira (Finanças).</li>
+                </ul>
 
-				<!-- Blog Post query goes here. -->
-				<div class="col-md-4">
-					<div class="box-blog">
-						<a href="Blogpost.html"><div class="blog-promoImage" style="background-image:url('/images/u_product_roadmap_white-1.png')"></div></a>
-						<h5>Product Update - Deploying Deploy 3.3</h5>
-						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
-						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
-							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
-					</div>
-					<a href="Blogpost.html" class="btn btn-inverted">Read more >></a>
-				</div>
-				<div class="col-md-4">
-					<div class="box-blog">
-						<a href="#"><div class="blog-promoImage" style="background-image:url('/images/Press.jpg')"></div></a>
-						<h5>Umbraco <3 YouTube</h5>
-						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
-						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
-							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
-					</div>
-					<a href="#" class="btn btn-inverted">Read more >></a>
-				</div>
-				<div class="col-md-4">
-					<div class="box-blog">
-						<a href="#"><div class="blog-promoImage" style="background-image:url('/images/sofie-hammock.jpg')"></div></a>
-						<h5>A day in a Documentation Curators life</h5>
-						<p class="blog-meta">January 20th 2020 - by Sofie Toft</p>
-						<p>The end of 2019 is approaching and with this, also the last Product Update of the year. 
-							Let’s have a look at what we’ve been working on and what you can expect in the near future.</p>
-					</div>
-					<a href="#" class="btn btn-inverted blog-box-btn">Read more >></a>
-				</div>
-			</div>
+            </div>
+        </div>
 
-		</div>
+    </div>
+</section>
+<!-- End About Section -->
+<!-- ======= Services Section ======= -->
+<section id="services">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Serviços</h2>
+            <p>A <b>NIF Online</b> é uma empresa de <b>Consulting & Coworking</b> que desenvolveu uma plataforma 100% online para auxiliar nacionais e estrangeiros na <b> obtenção do NIF</b> em Portugal. A <b> NIF Online </b> auxiliar na obtenção do NIF, proporcionando, inclusive a representação fiscal.</p>
+        </div>
 
-		<!-- Call to Action -->
-		<div class="container-fluid orange-bg">
-			<div class="container">
+        <div class="row gy-4">
 
-				<div class="row section">
-					<div class="col-md-12 text-center">
-						<h1>How to continue your Umbraco journey</h1>
-						<p>What’s next? We have gathered the 3 best ways for you to go on from here ensuring you get the best start to your Umbraco journey: <br/><br/></p>
-						<a href="#" class="btn btn-inverted-orange" role="button">3 ways to start your Umbraco Journey >></a>
-					</div>
-				</div>
-	
-			</div>
-		</div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="box">
+                    <div class="icon"><i class="bi bi-file-earmark-text"></i></div>
+                    <h4 class="title"><a href="">NIF</a></h4>
+                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="box">
+                    <div class="icon"><i class="bi bi-card-checklist"></i></div>
+                    <h4 class="title"><a href="">Representação Fiscal</a></h4>
+                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="box">
+                    <div class="icon"><i class="bi bi-briefcase"></i></div>
+                    <h4 class="title"><a href="">Abertura de Atividade</a></h4>
+                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="box">
+                    <div class="icon"><i class="bi bi-house"></i></div>
+                    <h4 class="title"><a href="">Representação Morada</a></h4>
+                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Services Section -->
+
+<section id="testimonials">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Depoimentos</h2>
+            <p>Nós prestamos um serviço de alta qualidade e eficiência e que resulta em satisfação de nossos clientes.</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            "Concluí meu NIF com o NIF Online em 10 dias incluindo o fim de semana, extremamente feliz com o serviço rápido!"
+                            <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                        <img src="assets/img/testimonial-1.jpg" class="testimonial-img" alt="">
+                        <h3>Richa Goyal</h3>
+                        <h4><b>Gerente Sênior</b></h4>
+                        <h4>Bangalore, Índia</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            "Contratei o serviço do NIF online e fiquei satisfeito! Prestativos, respondem rapidamente, recomendo! O NIF da minha filha saiu em 7 dias. Obrigado!"
+                            <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                        <img src="assets/img/testimonial-2.jpg" class="testimonial-img" alt="">
+                        <h3>Rogério Vieira</h3>
+                        @*<h4><b></b></h4>*@
+                        <h4>Rio de Janeiro, Brasil</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            "O serviço NIFonline me ajudou a obter o número de controle fiscal português de maneira rápida, eficiente, e econômica, desmistificando todo o processo. Meu NIF permanente foi emitido em 5 dias, e me permitiu obter contratos de serviços em Portugal e resolver várias  documentações antes mesmo de chegar ao país."
+                            <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                        <img src="assets/img/testimonial-3.jpg" class="testimonial-img" alt="">
+                        <h3>Ching Chang</h3>
+                        <h4><b>Escritor / Jornalista</b></h4>
+                        <h4>San Francisco, USA</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            "Excelente serviço, muito atenciosos, recomendo!"
+                            <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                        <img src="assets/img/testimonial-4.jpg" class="testimonial-img" alt="">
+                        <h3>Tais Colombo</h3>
+                        <h4><b>Servidora Pública</b></h4>
+                        <h4>Petrópolis, Brasil</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            "Super atenciosos, esclarecem tudo muito bem👏🏻 super recomendo."
+                            <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                        <img src="assets/img/testimonial-5.jpg" class="testimonial-img" alt="">
+                        <h3>Gustavo Borges</h3>
+                        <h4><b>Atleta MMA</b></h4>
+                        <h4>Dublin, Irlanda</h4>
+                    </div>
+                </div><!-- End testimonial item -->
+                <!--<div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <p>
+                            <img src="assets/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            "Super atenciosos, esclarecem tudo muito bem👏🏻 super recomendo."
+                            <img src="assets/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                        <img src="assets/img/testimonial-5.jpg" class="testimonial-img" alt="">
+                        <h3>Gustavo Borges</h3>
+                        <h4><b>Atleta MMA</b></h4>
+                        <h4>Dublin, Irlanda</h4>
+                    </div>
+                </div>-->
+                <!-- End testimonial item -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>
+<br />
+<br />
+<!-- End Testimonials Section -->

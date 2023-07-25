@@ -1,22 +1,38 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var language = System.Threading.Thread.CurrentThread.CurrentUICulture;
+    var culture = language.Name.Split('-')[0];
+    var content = Umbraco.ContentAtRoot()?.FirstOrDefault()?.Children<HomePage>()?.Where(x => x.IsVisible()).FirstOrDefault();
+
+    var homepage = Umbraco.Content(content.Id);
+    var url = homepage.Url();
+}
 
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex justify-content-between">
 
         <div id="logo">
-            @*<h1><a href="index.html">Reve<span>al</span></a></h1>*@
+            <h1><a href="index.html">NIF<span>Online</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a asp-area="" asp-page="/Index"><img src="/img/logo-nifonline-site.png" class="img-fluid logo-header" alt="logo-nifonline-site"></a>
+@*            <h1><a asp-area="" asp-page="/"><img src="@(Model?.Logo?.GetCropUrl())" class="img-fluid logo-header" alt="logo-nifonline-site"></a></h1>*@
         </div>
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" asp-area="" asp-page="/Index">Página Inicial</a></li>
+                <li><a class="nav-link scrollto @(Model.Id.Equals(homepage?.Id) ? "active" : "")" asp-page="@url">@homepage?.Name</a></li>
+
+                @foreach (var node in homepage.Children().Where(x => x.IsVisible()))
+                {
+                    var page = Umbraco.Content(node.Id);
+                    <li><a class="nav-link scrollto @(Model.Id.Equals(page.Id) ? "active" : "")" asp-page="@(page.Url())">@(page.Name)</a></li>
+                }
+      @*          <li><a class="nav-link scrollto active" asp-area="" asp-page="/">Página Inicial</a></li>
                 <li><a class="nav-link scrollto" asp-area="" asp-page="/TermsAndConditions">Termos e Condições</a></li>
                 <li><a class="nav-link scrollto " href="/CommonQuestions">Perguntas Frequentes</a></li>
-                <li><a class="nav-link scrollto" href="/Contact">Contato</a></li>
+                <li><a class="nav-link scrollto" href="/Contact">Contato</a></li>*@
                 <li class="dropdown">
                     <a href="#"><span>Administração</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -47,4 +63,4 @@
         </nav><!-- .navbar -->
 
     </div>
-    </header><!-- End Header -->
+</header><!-- End Header -->
